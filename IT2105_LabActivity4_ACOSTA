@@ -1,0 +1,46 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.WriteLine("TYPE THE NUMBER OF CASES: "); 
+         
+        // READ THE INPUT No. of cases
+        int T = int.Parse(Console.ReadLine());
+        
+        // stores the result of the inputs and make it to first, second, any
+        string[] results = new string[T];
+        
+       
+        for (int i = 0; i < T; i++)
+        {
+            // Read the values for X (Uber) and Y (Grab)
+            string[] input = Console.ReadLine().Split(' ');
+            int X = int.Parse(input[0]);
+            int Y = int.Parse(input[1]);
+            
+           
+            // Determine which service is cheaper and store the result
+            if (X < Y)
+            {
+                results[i] = "FIRST";
+            }
+            else if (X > Y)
+            {
+                results[i] = "SECOND";
+            }
+            else
+            {
+                results[i] = "ANY";
+            }
+        }
+
+        // Display the results for all test cases
+        Console.WriteLine("\nResults:");
+        foreach (var result in results)
+        {
+            Console.WriteLine(result);
+        }
+    }
+}
