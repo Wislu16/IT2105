@@ -1,0 +1,59 @@
+using System;
+
+class Bank
+{
+    static void Main(string[] args)
+    {
+        decimal balance = 0; 
+        int option;
+
+        do
+        {
+            
+            Console.WriteLine("\nBank Account Menu:");
+            Console.WriteLine("1. Deposit");
+            Console.WriteLine("2. Withdraw");
+            Console.WriteLine("3. Check Balance");
+            Console.WriteLine("4. Exit");
+            Console.Write("Choose an option (1-4): ");
+            
+            
+            option = Convert.ToInt32(Console.ReadLine());
+
+
+            switch (option)
+            {
+                case 1: // Deposit
+                    Console.Write("Enter the amount: ");
+                    decimal depositamount = Convert.ToDecimal(Console.ReadLine());
+                    balance += depositamount; 
+                    Console.WriteLine($"${depositamount} has been deposited to your account.");
+                    break;
+
+                case 2: // Withdraw
+                    Console.Write("Enter the amount to withdraw: ");
+                    decimal withdrawamount = Convert.ToDecimal(Console.ReadLine());
+                    if (withdrawamount > balance)
+                    {
+                        Console.WriteLine("Insufficient funds. Withdrawal denied.");
+                    }
+                    else
+                    {
+                        balance -= withdrawamount; 
+                        Console.WriteLine($"${withdrawamount} has been withdrawn from your account.");
+                    }
+                    break;
+
+                case 3: 
+                    Console.WriteLine($"Your current balance is: ${balance}");
+                    break;
+
+                case 4: 
+                    Console.WriteLine("Thank you so much ");
+                    break;
+
+            
+            }
+        } while (option != 4); 
+    }
+}
